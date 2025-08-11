@@ -1,20 +1,20 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { setCars } from '../redux/carsSlice';
+import { useDispatch, useSelector } from "react-redux";
+import { setCars } from "../redux/carsSlice";
 
 const Home = () => {
-
   const dispatch = useDispatch();
-  const cars = useSelector(state => state.cars.list);
+  const cars = useSelector((state) => state.cars.list);
 
   return (
     <div>
-       <h1>Home Page</h1>
-       <button onClick={()=> dispatch(setCars([{id:1, brand: 'Dacia'}]))}>
+      <h1>Home Page</h1>
+      <button onClick={() => dispatch(setCars([{ id: 1, brand: "Dacia" }]))}>
         Add car
-       </button>
-       <pre>{JSON.stringify(cars, null, 2)}</pre>
+      </button>
+      <pre>{JSON.stringify(cars, null, 2)}</pre>{" "}
+      {/* to show list/null → означає, що ми не змінюємо логіку перетворення/2 → відступ у 2 пробіли для краси. */}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

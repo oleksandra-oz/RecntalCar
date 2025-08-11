@@ -1,4 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk  } from '@reduxjs/toolkit';
+import { fetchCars } from '../services/carsApi.js';
+
+export const loadCars = createAsyncThunk(
+    'cars/load',
+    async(params, thunkAPI)=>{
+        const res = await fetchCars(params);
+        return {data: res.data, page: params.page ?? 1};
+    }
+);
 
 const initialState = {
     list : [],
